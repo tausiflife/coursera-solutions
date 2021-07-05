@@ -1,6 +1,6 @@
-package com.thread;
+package com.general.thread;
 
-import com.threads.PingPongThread;
+import com.general.threads.PingPongThread;
 import org.junit.jupiter.api.Test;
 
 public class PingPongTest {
@@ -12,5 +12,7 @@ public class PingPongTest {
         Thread pong = new Thread(new PingPongThread(lock, "pong"));
         ping.start();
         pong.start();
+        ping.join();
+        pong.join();
     }
 }

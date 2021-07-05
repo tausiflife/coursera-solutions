@@ -1,6 +1,6 @@
-package com.coursera.algorithms.general;
+package com.general.collection;
 
-import com.general.PowerSet;
+import com.general.problems.PowerSet;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

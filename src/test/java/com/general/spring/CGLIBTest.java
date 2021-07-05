@@ -1,12 +1,9 @@
-package com.spring;
+package com.general.spring;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.cglib.proxy.Enhancer;
-import org.springframework.cglib.proxy.InvocationHandler;
 import org.springframework.cglib.proxy.MethodInterceptor;
-
-import java.lang.reflect.Method;
 
 public class CGLIBTest {
 
