@@ -1,4 +1,4 @@
-package com.general.ood;
+package com.general.ood.ricksapp;
 
 import java.util.Objects;
 
@@ -8,13 +8,15 @@ public class GuitarSpec {
     private Type type;
     private Wood backWood;
     private Wood topWood;
+    private int numStrings;
 
-    public GuitarSpec(String model, Builder builder, Type type, Wood backWood, Wood topWood) {
+    public GuitarSpec(String model, Builder builder, Type type, Wood backWood, Wood topWood, int numStrings) {
         this.model = model;
         this.builder = builder;
         this.type = type;
         this.backWood = backWood;
         this.topWood = topWood;
+        this.numStrings = numStrings;
     }
 
     public String getModel() {
@@ -37,13 +39,17 @@ public class GuitarSpec {
         return topWood;
     }
 
+    public int getNumStrings() {
+        return numStrings;
+    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         GuitarSpec that = (GuitarSpec) o;
-        return model.equals(that.model) && builder == that.builder && type == that.type && backWood == that.backWood && topWood == that.topWood;
+        return model.equals(that.model) && builder == that.builder && type == that.type
+                && backWood == that.backWood && topWood == that.topWood && this.numStrings == that.numStrings;
     }
 
     @Override

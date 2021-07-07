@@ -1,4 +1,4 @@
-package com.general.ood;
+package com.general.ood.ricksapp;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,8 +11,8 @@ public class Inventory {
         guitars = new ArrayList<>();
     }
 
-    public void addGuitar(String serialNumber, double price, String model, Builder builder, Type type, Wood backWood, Wood topWood) {
-        guitars.add(new Guitar(serialNumber,price, model, builder, type, backWood, topWood));
+    public void addGuitar(String serialNumber, double price, String model, Builder builder, Type type, Wood backWood, Wood topWood, int numStrings) {
+        guitars.add(new Guitar(serialNumber,price, new GuitarSpec(model, builder, type, backWood, topWood, numStrings)));
     }
 
     public Guitar getGuitar(String serialNumber) {

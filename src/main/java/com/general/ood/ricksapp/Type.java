@@ -1,4 +1,4 @@
-package com.general.ood;
+package com.general.ood.ricksapp;
 
 public enum Type {
     ACOUSTIC, ELECTRIC;

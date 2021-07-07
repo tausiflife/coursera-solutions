@@ -1,4 +1,4 @@
-package com.general.ood;
+package com.general.ood.ricksapp;
 
 public enum Wood {
     INDIAN_ROSEWOOD, BRAZILIAN_ROSEWOOD, MAHOGANY, MAPLE, COCOBOLO, CEDER, ALDER;

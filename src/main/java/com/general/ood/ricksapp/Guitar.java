@@ -1,14 +1,14 @@
-package com.general.ood;
+package com.general.ood.ricksapp;
 
 public class Guitar {
     private String serialNumber;
     private double price;
     private GuitarSpec spec;
 
-    public Guitar(String serialNumber, double price, String model, Builder builder, Type type, Wood backWood, Wood topWood) {
+    public Guitar(String serialNumber, double price, GuitarSpec spec) {
         this.serialNumber = serialNumber;
         this.price = price;
-        this.spec = new GuitarSpec(model, builder, type, backWood, topWood);
+        this.spec = spec;
     }
 
     public String getSerialNumber() {
