@@ -1,5 +1,6 @@
 package com.general.ood;
 
+import com.general.ood.dougsapp.Bark;
 import com.general.ood.dougsapp.BarkRecognizer;
 import com.general.ood.dougsapp.DogDoor;
 import com.general.ood.dougsapp.Remote;
@@ -31,20 +32,27 @@ public class DogDoorSimulator {
 
     @Test
     public void testBarkRecognizer() throws InterruptedException {
-        /*DogDoor door = new DogDoor();
+        DogDoor door = new DogDoor();
+        door.addAllowedBark(new Bark("rowlf"));
+        door.addAllowedBark(new Bark("rooowIf"));
+        door.addAllowedBark(new Bark("rawIf"));
+        door.addAllowedBark(new Bark("woof"));
         BarkRecognizer barkRecognizer = new BarkRecognizer(door);
-        //Simulate the hardware hearing a bark
-        barkRecognizer.recognize("Woof");
+        //Simulate the hardware hearing a bark of bruce
+        barkRecognizer.recognize(new Bark("rowlf"));
         System.out.println("Fido has gone outside...");
-        System.out.println("Fido is all done...");
         Thread.sleep(10000);
+        System.out.println("Fido is all done...");
         Assertions.assertFalse(door.isOpen());
         System.out.println("... but he is stuck outside");
         //simulate hardware hearing a bark again
-        System.out.println("Fido starts barking again..");
-        barkRecognizer.recognize("Woof");
+        System.out.println("A small dog starts barking ");
+        barkRecognizer.recognize(new Bark("yip"));
+        Assertions.assertFalse(door.isOpen());
+        System.out.println("Fido barks now...");
+        barkRecognizer.recognize(new Bark("rooowIf"));
+        Assertions.assertTrue(door.isOpen());
         System.out.println("Fido is back inside...");
-        Assertions.assertTrue(door.isOpen());*/
 
     }
 }

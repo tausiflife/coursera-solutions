@@ -22,17 +22,6 @@ public class MathChallengeTest {
         assertEquals(673456689, encoded3);
     }
 
-    @Test
-    public void testList() {
-        ArrayList list = new ArrayList();
-        list.add("Hello");
-        list.add("World");
-        list.add(new Integer(10));
-        String firstString = (String) list.get(0);
-        String secondString = (String) list.get(1);
-        String thirdString = (String) list.get(2);
-        List<List> l = Collections.singletonList(list);
-    }
 
     private void addToList(List list) {
         list.add("hello");

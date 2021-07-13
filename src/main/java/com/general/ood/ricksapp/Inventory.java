@@ -5,21 +5,22 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Inventory {
-    private List<Guitar> guitars;
+    private List<Instrument> instruments;
 
     public Inventory() {
-        guitars = new ArrayList<>();
+        instruments = new ArrayList<>();
     }
 
-    public void addGuitar(String serialNumber, double price, String model, Builder builder, Type type, Wood backWood, Wood topWood, int numStrings) {
-        guitars.add(new Guitar(serialNumber,price, new GuitarSpec(model, builder, type, backWood, topWood, numStrings)));
+    public void addInstrument(String serialNumber, double price, InstrumentSpec spec) {
+        Instrument instrument = new Instrument(serialNumber, price, spec);
+        instruments.add(instrument);
     }
 
-    public Guitar getGuitar(String serialNumber) {
-        return guitars.stream().filter(e -> e.getSerialNumber().equals(serialNumber)).findAny().get();
+    public Instrument get(String serialNumber) {
+        return instruments.stream().filter(e -> e.getSerialNumber().equals(serialNumber)).findAny().get();
     }
 
-    public List<Guitar> search(GuitarSpec spec) {
-        return guitars.stream().filter(guitar -> guitar.getSpec().equals(spec)).collect(Collectors.toList());
+    public List<Instrument> search(InstrumentSpec spec) {
+        return instruments.stream().filter(guitar -> guitar.getSpec().matches(spec)).collect(Collectors.toList());
     }
 }

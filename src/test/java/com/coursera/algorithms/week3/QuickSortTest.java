@@ -26,4 +26,24 @@ public class QuickSortTest {
         quickSort.quickSortWithDuplicates(arr);
         Assert.assertArrayEquals(new Integer[]{1, 2, 2, 2, 3, 4, 5, 5, 5, 5, 8, 9}, arr);
     }
+
+    @Test
+    public void testSortingOfNutsAndBolts() {
+        Integer[] nuts = {5, 9, 1, 7, 2, 4};
+        Integer[] bolts = {9, 7, 1, 5, 4, 2};
+        quickSort.pairOfNutsAndBolts(nuts, bolts);
+        Assert.assertArrayEquals(new Integer[]{1, 2, 4, 5, 7, 9}, nuts);
+        Assert.assertArrayEquals(new Integer[]{1, 2, 4, 5, 7, 9}, bolts);
+    }
+
+    @Test
+    public void testKthSmallesElement() {
+        int[] arr1 = {1, 3, 4, 7, 10, 12};
+        int[] arr2 = {2, 3, 6, 15};
+        int k = quickSort.findKthElement(arr1, arr2, 5);
+        Assert.assertEquals(4, k);
+
+        k = quickSort.findKthElement(arr1, arr2, 9);
+        Assert.assertEquals(12, k);
+    }
 }

@@ -1,11 +1,11 @@
 package com.general.ood.ricksapp;
 
-public class Guitar {
+public class Instrument {
     private String serialNumber;
     private double price;
-    private GuitarSpec spec;
+    private InstrumentSpec spec;
 
-    public Guitar(String serialNumber, double price, GuitarSpec spec) {
+    public Instrument(String serialNumber, double price, InstrumentSpec spec) {
         this.serialNumber = serialNumber;
         this.price = price;
         this.spec = spec;
@@ -19,9 +19,10 @@ public class Guitar {
         return price;
     }
 
-    public GuitarSpec getSpec() {
-        return spec;
+    public InstrumentSpec getSpec() {
+        return this.spec;
     }
+
 
     @Override
     public String toString() {

@@ -1,7 +1,5 @@
 package com.general.ood.dougsapp;
 
-import java.util.Objects;
-
 public class Bark {
     private String sound;
 

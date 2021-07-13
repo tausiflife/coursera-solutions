@@ -1,8 +1,7 @@
 package com.general.ood.ricksapp;
 
 public enum Wood {
-    INDIAN_ROSEWOOD, BRAZILIAN_ROSEWOOD, MAHOGANY, MAPLE, COCOBOLO, CEDER, ALDER;
-
+    INDIAN_ROSEWOOD, BRAZILIAN_ROSEWOOD, MAHOGANY, MAPLE, COCOBOLO, CEDER, ALDER, SPRUCE, ADIRON_DACK;
     @Override
     public String toString() {
         switch (this) {
@@ -20,6 +19,10 @@ public enum Wood {
                 return "Cedar";
             case ALDER:
                 return "Alder";
+            case SPRUCE:
+                return "Spruce";
+            case ADIRON_DACK:
+                return "Adirondack";
             default:
                 return "";
         }
