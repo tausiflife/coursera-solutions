@@ -30,15 +30,6 @@ public class InstrumentSpec {
             if (!properties.get(propName).equals(spec.getProperties().get(propName)))
                 return false;
         }
-        //char d1 = 'c';
-        double d1 = 127;
-        char c = (char) d1;
-        byte b = (byte)d1;
-        short sh = (short) d1;
-        int i =  (int) d1;
-        long l =  (long) d1;
-        float f =  (float) d1;
-        double d = d1;
         return true;
     }
 }

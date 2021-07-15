@@ -1,7 +1,10 @@
 package com.coursera.algorithms.week3;
 
 import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import java.util.NoSuchElementException;
 
 public class QuickSortTest {
     private QuickSort quickSort = new QuickSort();
@@ -45,5 +48,34 @@ public class QuickSortTest {
 
         k = quickSort.findKthElement(arr1, arr2, 9);
         Assert.assertEquals(12, k);
+    }
+
+    @Test
+    public void findMedianInSortedArrayOfUnequalLength() {
+        int[] arr1 = {1, 3, 4, 7, 10, 12};
+        int[] arr2 = {2, 3, 6, 15};
+        int k = quickSort.findMedian(arr1, arr2);
+        Assert.assertEquals(5, k);
+    }
+
+    @Test
+    public void findMedianInSortedArrayOfEqualLength() {
+        int[] arr1 = {4, 7, 10, 12};
+        int[] arr2 = {2, 3, 6, 15};
+        int k = quickSort.findMedian(arr1, arr2);
+        Assert.assertEquals(6, k);
+    }
+
+    @Test
+    public void shouldFindMajorityElement() {
+        int[] arr1 = {1,2,3,4,2,2,2,2};
+        int k = quickSort.findMajorityElement(arr1);
+        Assert.assertEquals(2, k);
+    }
+
+    @Test
+    public void shouldThrowExceptionWhenNoMajorityElementExist() {
+        int[] arr1 = {1,2,3,4,5,6,2,2};
+        Assertions.assertThrows(NoSuchElementException.class, () -> quickSort.findMajorityElement(arr1));
     }
 }

@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.UnsatisfiedDependencyException;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 
@@ -61,5 +62,13 @@ public class ApplicationContextTests {
         LocalDateTime dateTime1 = singletonBean1.getDateTime();
 
         Assert.assertTrue(dateTime1.isAfter(dateTime));
+        ((ConfigurableApplicationContext)applicationContext).close();
+    }
+
+    @Test
+    public void testSpringCallbacks() {
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(SpringConfigurationWithCallback.class);
+        SpringBeanCallbacks springBeanCallbacks = applicationContext.getBean(SpringBeanCallbacks.class);
+        ((ConfigurableApplicationContext)applicationContext).close();
     }
 }
