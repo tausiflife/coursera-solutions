@@ -1,11 +1,11 @@
-package com.coursera.algorithms.week4.unordered;
+package com.coursera.algorithms.week4;
 
-public class MaxPriorityQueue<Key extends Comparable<Key>> {
+public class UnorderedMaxPriorityQueue<Key extends Comparable<Key>> {
     private Key[] items;
     private int n;
     private static final int CAPACITY = 8;
 
-    public MaxPriorityQueue() {
+    public UnorderedMaxPriorityQueue() {
         items = (Key[]) new Comparable[CAPACITY];
     }
 

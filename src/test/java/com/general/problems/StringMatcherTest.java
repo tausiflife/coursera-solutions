@@ -28,4 +28,5 @@ public class StringMatcherTest {
     public void testSubstringFalse() {
         assertFalse(stringMatcher.isSubString("abcde", "cdh"));
     }
+
 }

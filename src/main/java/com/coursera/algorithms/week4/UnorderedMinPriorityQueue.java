@@ -1,11 +1,11 @@
-package com.coursera.algorithms.week4.unordered;
+package com.coursera.algorithms.week4;
 
-public class MinPriorityQueue<Key extends Comparable<Key>> {
+public class UnorderedMinPriorityQueue<Key extends Comparable<Key>> {
     private Key[] items;
     private int n;
     private static final int CAPACITY = 8;
 
-    public MinPriorityQueue() {
+    public UnorderedMinPriorityQueue() {
         items = (Key[]) new Comparable[CAPACITY];
     }
 

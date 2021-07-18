@@ -1,5 +1,7 @@
 package com.general.spring;
 
+import com.general.spring.beans.*;
+import com.general.spring.config.*;
 import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -13,6 +15,8 @@ import java.time.LocalDateTime;
 
 
 public class ApplicationContextTests {
+    private ApplicationContext applicationContext;
+
 
     @Test
     public void testApplicationContextCreation() {
@@ -69,6 +73,43 @@ public class ApplicationContextTests {
     public void testSpringCallbacks() {
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(SpringConfigurationWithCallback.class);
         SpringBeanCallbacks springBeanCallbacks = applicationContext.getBean(SpringBeanCallbacks.class);
+        ((ConfigurableApplicationContext)applicationContext).close();
+    }
+
+    @Test
+    void testBeanNameAwareClass() {
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(SpringBeanNameAwareConfig.class);
+        BeanNameAwareClass beanNameAwareClass = applicationContext.getBean(BeanNameAwareClass.class);
+        ((ConfigurableApplicationContext)applicationContext).close();
+    }
+
+    @Test
+    void testSpringBeanPostProcessor() {
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(BeanPostProcessorClass.class);
+        BeanPostProcessorClass beanPostProcessorClass = applicationContext.getBean(BeanPostProcessorClass.class);
+        ((ConfigurableApplicationContext)applicationContext).close();
+    }
+
+    @Test
+    void testBeanFactoryPostProcessor() {
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(BeanFactoryPostProcessorClass.class);
+        BeanFactoryPostProcessorClass beanPostProcessorClass = applicationContext.getBean(BeanFactoryPostProcessorClass.class);
+        ((ConfigurableApplicationContext)applicationContext).close();
+
+    }
+
+    @Test
+    void testBeanWithMultipleConstructor() {
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(BeanWithMultipleConstructor.class, PrototypeBean.class);
+        BeanWithMultipleConstructor beanPostProcessorClass = applicationContext.getBean(BeanWithMultipleConstructor.class);
+        ((ConfigurableApplicationContext)applicationContext).close();
+    }
+
+    @Test
+    void testBeansWithGenerics() {
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(GenericsAutowiringConfig.class, GenericAutowire.class);
+        GenericAutowire genericAutowire = applicationContext.getBean(GenericAutowire.class);
+        genericAutowire.testStores();
         ((ConfigurableApplicationContext)applicationContext).close();
     }
 }

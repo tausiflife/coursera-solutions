@@ -1,5 +1,7 @@
-package com.general.spring;
+package com.general.spring.config;
 
+import com.general.spring.beans.CircularDependencyClassA;
+import com.general.spring.beans.CircularDependencyClassB;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

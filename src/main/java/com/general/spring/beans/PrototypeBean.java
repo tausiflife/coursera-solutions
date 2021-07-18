@@ -1,4 +1,4 @@
-package com.general.spring;
+package com.general.spring.beans;
 
 import java.time.LocalDateTime;
 
