@@ -112,4 +112,38 @@ public class ApplicationContextTests {
         genericAutowire.testStores();
         ((ConfigurableApplicationContext)applicationContext).close();
     }
+
+    @Test
+    void shouldTestLifeCycleForBeansInAComponentClass() {
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(SpringComponentToCheckLifeCycleCallBack.class);
+        BeanForComponent beanForComponent = applicationContext.getBean(BeanForComponent.class);
+        ((ConfigurableApplicationContext)applicationContext).close();
+    }
+
+    @Test
+    void testBeanWithCallingMethod() {
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(SpringConfigurationInternalGetBeanCall.class);
+        ((ConfigurableApplicationContext)applicationContext).close();
+    }
+
+    @Test
+    void testPrototypeWithSingletonBean() throws InterruptedException {
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(SpringPrototypeWithSingletonBean.class);
+        SingletonBean singletonBean = applicationContext.getBean(SingletonBean.class);
+        LocalDateTime dateTime = singletonBean.getSingletonDatetime();
+        Thread.sleep(1000);
+
+        PrototypeWithSingletonBean prototype1 = applicationContext.getBean(PrototypeWithSingletonBean.class);
+        LocalDateTime dateTime1 = prototype1.getLocalDateTime();
+
+        Thread.sleep(1000);
+
+        PrototypeWithSingletonBean prototype2 = applicationContext.getBean(PrototypeWithSingletonBean.class);
+        LocalDateTime dateTime2 = prototype2.getLocalDateTime();
+
+        Assert.assertTrue(dateTime1.isEqual(dateTime));
+        Assert.assertTrue(dateTime2.isEqual(dateTime));
+        ((ConfigurableApplicationContext)applicationContext).close();
+
+    }
 }

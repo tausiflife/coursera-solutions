@@ -3,6 +3,9 @@ package com.general.problems;
 import com.general.algorithms.StringMatcher;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+import java.util.Random;
+
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -28,5 +31,12 @@ public class StringMatcherTest {
     public void testSubstringFalse() {
         assertFalse(stringMatcher.isSubString("abcde", "cdh"));
     }
+
+    @Test
+    void testStreamDuplicates() {
+        List list = stringMatcher.getDuplicates();
+        System.out.println(list.size());
+    }
+
 
 }

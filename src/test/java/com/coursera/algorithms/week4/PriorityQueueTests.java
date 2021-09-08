@@ -4,6 +4,10 @@ import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class PriorityQueueTests {
     private OrderedMaxPriorityQueue<Integer> orderedMaxPriorityQueue;
     private OrderedMinPriorityQueue<Integer> orderedMinPriorityQueue;
@@ -71,5 +75,12 @@ public class PriorityQueueTests {
         Assert.assertEquals(18, heapZeroBased.delMax());
         Assert.assertEquals(16, heapZeroBased.delMax());
         Assert.assertEquals(15, heapZeroBased.delMax());
+    }
+
+    @Test
+    void name() {
+        List<Integer> list = new ArrayList<>();
+        Collections.reverse(list);
+        list.toArray(new Integer[list.size()]);
     }
 }

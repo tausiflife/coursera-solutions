@@ -12,8 +12,10 @@ public class BeanFactoryPostProcessorClass implements BeanFactoryPostProcessor {
         System.out.println("Inside bean factory post process");
         for (String beanNames : configurableListableBeanFactory.getBeanDefinitionNames()) {
             BeanDefinition beanDefinition = configurableListableBeanFactory.getBeanDefinition(beanNames);
-            if (beanDefinition.getBeanClassName().equals(BeanFactoryPostProcessorClass.class.getName()))
+            if (beanDefinition.getBeanClassName().equals(BeanFactoryPostProcessorClass.class.getName())) {
+                System.out.println(beanDefinition.getScope());
                 beanDefinition.setScope(ConfigurableBeanFactory.SCOPE_PROTOTYPE);
+            }
             System.out.println(beanDefinition);
         }
     }
