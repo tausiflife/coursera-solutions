@@ -1,11 +1,8 @@
 package com.general.algorithms;
 
-import com.sun.xml.internal.ws.addressing.WsaTubeHelper;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class StringMatcher {
@@ -41,6 +38,7 @@ public class StringMatcher {
         return list.stream().distinct().filter(student -> student.marks > 75).collect(Collectors.toList());
     }
 }
+
 class Student {
     String name;
     int marks;
